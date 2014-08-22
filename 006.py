@@ -7,4 +7,4 @@ def sum_square_diff(amount_of_numbers):
     square_of_sum = square_of_sum**2
     print(square_of_sum - sum_of_squares)
 
-sum_square_diff(1000000)
+sum_square_diff(100)
