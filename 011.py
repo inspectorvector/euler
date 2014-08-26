@@ -15,23 +15,61 @@ def convert_arrays(arrays):
 
 def calculate_greatest_product():
 
-    greatest_sum_found = 0
+    greatest_product_found = 0
+
+# product of forward diagonal
 
     for column in range(len(arrays) - 3):
         for row in range(len(arrays) - 3):
-            summed = 1
+            product = 1
             a = row
             b = column
             for i in range(4):
-                summed *= arrays[a][b]
+                product *= arrays[a][b]
                 a += 1
                 b += 1
-            if summed > greatest_sum_found:
-                greatest_sum_found = summed
+            if product > greatest_product_found:
+                greatest_product_found = product
 
+# product of backward diagonal
 
+    for column in range(3, len(arrays)):
+        for row in range(len(arrays) - 3):
+            product = 1
 
-    return greatest_sum_found
+            for i in range(4):
+                product *= arrays[row + i][column - i]
+
+            if product > greatest_product_found:
+                greatest_product_found = product
+
+# product of horizontal group
+
+    for column in range(len(arrays)):
+        for row in range(len(arrays) - 3):
+            product = 1
+            a = row
+            b = column
+            for i in range(4):
+                product *= arrays[a][b]
+                a += 1
+            if product > greatest_product_found:
+                greatest_product_found = product
+
+# product of vertical
+
+    for column in range(len(arrays) - 4):
+        for row in range(len(arrays)):
+            product = 1
+            a = row
+            b = column
+            for i in range(4):
+                product *= arrays[a][b]
+                b += 1
+            if product > greatest_product_found:
+                greatest_product_found = product
+
+    return greatest_product_found
 
 
 arrays = convert_arrays(arrays)
