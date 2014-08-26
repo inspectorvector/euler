@@ -13,23 +13,29 @@ def convert_arrays(arrays):
 
     return newintarrays
 
-def calculate_diagonally():
+def calculate_greatest_product():
 
-    a = 0
-    b = 0
-    current_column = 0
-    summed = 0
-    for column in range(len(arrays)):
-        for row in range(len(arrays)):
+    greatest_sum_found = 0
+
+    for column in range(len(arrays) - 3):
+        for row in range(len(arrays) - 3):
+            summed = 1
+            a = row
+            b = column
             for i in range(4):
-                summed += arrays[a][b]
+                summed *= arrays[a][b]
                 a += 1
                 b += 1
-        current_column += 1
+            if summed > greatest_sum_found:
+                greatest_sum_found = summed
 
-    return summed
+
+
+    return greatest_sum_found
 
 
 arrays = convert_arrays(arrays)
-print(calculate_diagonally())
+print(calculate_greatest_product())
+
+
 
