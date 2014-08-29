@@ -6,7 +6,14 @@ def triangle_number_generator(trianglenumwanted):
 
 def highly_divisible_tri_num():
     list_of_divisors = []
-    tri_num = 1
+    current_tri_num = 1
 
     while len(list_of_divisors) < 501:
-        tri_num
+        for i in range(1, triangle_number_generator(current_tri_num) + 1):
+            if current_tri_num % i == 0:
+                list_of_divisors.insert(i, i)
+        current_tri_num += 1
+    print(list_of_divisors)
+    return current_tri_num
+
+print(highly_divisible_tri_num())
