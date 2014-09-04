@@ -57,7 +57,7 @@ def allocate_teams(bot, trigger):
     if len(bot.people_seated) == 5:
         bot.lsoa = bot.people_seated[0:3]
         bot.mom = bot.people_seated[3:5]
-        bot.merlin = bot.lsoa[0]
+        bot.merlin = bot.lsoa[0]            # these two lines set who merlin and the assassin are.
         bot.assassin = bot.mom[0]
     elif len(bot.people_seated) == 6:
         bot.lsoa = bot.people_seated[0:4]
